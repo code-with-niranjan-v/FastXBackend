@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8" />
+
+    <style>
+
+        body{
+            background:#f4f7fb;
+            font-family:Arial,sans-serif;
+            padding:20px;
+        }
+
+        .ticket-container{
+            width:700px;
+            margin:auto;
+            background:white;
+            border-radius:20px;
+            padding:30px;
+            border:1px solid #ddd;
+        }
+
+        .main-table{
+            width:100%;
+        }
+
+        .left-section{
+            width:220px;
+            vertical-align:top;
+        }
+
+        .qr-box{
+            width:180px;
+            height:220px;
+            background:#f5f5f5;
+            border-radius:20px;
+            text-align:center;
+            padding-top:40px;
+        }
+
+        .qr-box img{
+            width:120px;
+            height:120px;
+        }
+
+        .right-section{
+            vertical-align:top;
+            padding-left:20px;
+        }
+
+        .info-table{
+            width:100%;
+        }
+
+        .info-table td{
+            padding-bottom:35px;
+            vertical-align:top;
+        }
+
+        .label{
+            font-size:11px;
+            color:#777;
+            letter-spacing:4px;
+            font-weight:bold;
+            padding-bottom:10px;
+        }
+
+        .value{
+            font-size:34px;
+            font-weight:bold;
+            color:#111;
+        }
+
+        .small-value{
+            font-size:22px;
+            font-weight:bold;
+            color:#111;
+        }
+
+        .blue{
+            color:#005bff;
+        }
+
+        .col{
+            width:180px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="ticket-container">
+
+    <table class="main-table">
+
+        <tr>
+
+            <td class="left-section">
+
+                <div class="qr-box">
+
+                    <img th:src="${qrCode}"
+                         width="120"
+                         height="120"
+                         style="display:block;" />
+
+                </div>
+
+            </td>
+
+
+
+            <td class="right-section">
+
+                <table class="info-table">
+
+                    <tr>
+
+                        <td class="col">
+
+                            <div class="label">FROM</div>
+
+                            <div class="value"
+                                 th:text="${source}">
+                            </div>
+
+                        </td>
+
+                        <td class="col">
+
+                            <div class="label">TO</div>
+
+                            <div class="value"
+                                 th:text="${destination}">
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+
+                    <tr>
+
+                        <td class="col">
+
+                            <div class="label">
+                                DEPARTURE DATE
+                            </div>
+
+                            <div class="small-value"
+                                 th:text="${date}">
+                            </div>
+
+                        </td>
+
+                        <td class="col">
+
+                            <div class="label">
+                                SERVICE
+                            </div>
+
+                            <div class="small-value blue"
+                                 th:text="${busName}">
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+
+                    <tr>
+
+                        <td class="col">
+
+                            <div class="label">
+                                BOOKING ID
+                            </div>
+
+                            <div class="small-value"
+                                 th:text="${bookingId}">
+                            </div>
+
+                        </td>
+
+                        <td class="col">
+
+                            <div class="label">
+                                SEAT NUMBER
+                            </div>
+
+                            <div class="small-value"
+                                 th:text="${seats}">
+                            </div>
+
+                        </td>
+
+                        <td class="col">
+
+                            <div class="label">
+                                ARRIVAL TIME
+                            </div>
+
+                            <div class="small-value"
+                                 th:text="${arrivalTime}">
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                </table>
+
+            </td>
+
+        </tr>
+
+    </table>
+
+</div>
+
+</body>
+
+</html>

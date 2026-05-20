@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8" />
+
+    <style>
+
+        body{
+            font-family:Arial,sans-serif;
+            padding:30px;
+        }
+
+        .ticket{
+            width:650px;
+            border:1px solid #ccc;
+            padding:30px;
+        }
+
+        .title{
+            font-size:32px;
+            font-weight:bold;
+            color:#005bff;
+            margin-bottom:30px;
+        }
+
+        .row{
+            margin-bottom:20px;
+        }
+
+        .label{
+            font-size:14px;
+            color:#666;
+            font-weight:bold;
+        }
+
+        .value{
+            font-size:22px;
+            font-weight:bold;
+            margin-top:5px;
+        }
+
+        .qr{
+            margin-top:30px;
+        }
+
+        .qr img{
+            width:140px;
+            height:140px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="ticket">
+
+    <div class="title">
+        FastX Bus Ticket
+    </div>
+
+    <div class="row">
+
+        <div class="label">
+            BOOKING ID
+        </div>
+
+        <div class="value"
+             th:text="${bookingId}">
+        </div>
+
+    </div>
+
+
+
+    <div class="row">
+
+        <div class="label">
+            PASSENGER
+        </div>
+
+        <div class="value"
+             th:text="${name}">
+        </div>
+
+    </div>
+
+
+
+    <div class="row">
+
+        <div class="label">
+            BUS
+        </div>
+
+        <div class="value"
+             th:text="${busName}">
+        </div>
+
+    </div>
+
+
+
+    <div class="row">
+
+        <div class="label">
+            FROM
+        </div>
+
+        <div class="value"
+             th:text="${source}">
+        </div>
+
+    </div>
+
+
+
+    <div class="row">
+
+        <div class="label">
+            TO
+        </div>
+
+        <div class="value"
+             th:text="${destination}">
+        </div>
+
+    </div>
+
+
+
+    <div class="row">
+
+        <div class="label">
+            SEATS
+        </div>
+
+        <div class="value"
+             th:text="${seats}">
+        </div>
+
+    </div>
+
+
+
+    <div class="row">
+
+        <div class="label">
+            ARRIVAL TIME
+        </div>
+
+        <div class="value"
+             th:text="${arrivalTime}">
+        </div>
+
+    </div>
+
+
+
+    <div class="qr">
+
+        <img th:src="${qrCode}"
+             width="140"
+             height="140" />
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
