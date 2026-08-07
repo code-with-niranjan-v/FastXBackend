@@ -15,7 +15,11 @@ services:
       SPRING_MAIL_PASSWORD: ${MAIL_PASSWORD:-app_password}
     networks:
       - infrastructure-network
+      - fastx-network
 
 networks:
   infrastructure-network:
     external: true
+  fastx-network:
+    name: fastx-network
+    driver: bridge
