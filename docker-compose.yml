@@ -1,0 +1,21 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fastx-backend
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:${MYSQL_PORT:-3306}/${MYSQL_DATABASE:-appdb}
+      SPRING_DATASOURCE_USERNAME: ${MYSQL_USER:-appuser}
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_PASSWORD}
+      SPRING_MAIL_USERNAME: ${MAIL_USERNAME:-email_address}
+      SPRING_MAIL_PASSWORD: ${MAIL_PASSWORD:-app_password}
+    networks:
+      - infrastructure-network
+
+networks:
+  infrastructure-network:
+    external: true

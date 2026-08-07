@@ -36,7 +36,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain provideCustomSecurityConfig(HttpSecurity http){
         return http.sessionManagement(s->s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(r->r.requestMatchers("/api/auth/**","/api/user/forgot-password","/api/user/reset-password").permitAll().anyRequest().authenticated())
+                .authorizeHttpRequests(r->r.requestMatchers("/api/auth/**","/api/user/forgot-password","/api/user/reset-password","/actuator/**").permitAll().anyRequest().authenticated())
                 .csrf(c->c.disable())
                 .exceptionHandling(
                         ex -> ex
